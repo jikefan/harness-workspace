@@ -1,0 +1,18 @@
+# Template: repository inventory
+# Copy to profiles/<project-id>/repos.yml and replace placeholders.
+
+repos:
+  api:
+    name: <repo-name>
+    display_name: <Human readable name>
+    url: https://github.com/<org>/<repo-name>
+    type: python-backend
+    default_base_branch: <base-branch>
+    recommended_check: scripts/agent/check.sh
+  web:
+    name: <repo-name>
+    display_name: <Human readable name>
+    url: https://github.com/<org>/<repo-name>
+    type: frontend
+    default_base_branch: <base-branch>
+    recommended_check: scripts/agent/check.sh

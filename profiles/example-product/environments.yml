@@ -1,0 +1,22 @@
+# Example environment inventory. Do not put passwords, tokens, or private keys here.
+
+environments:
+  local:
+    aliases: [local, dev machine]
+    url: http://localhost:3000
+    notes: Local development environment.
+  test:
+    aliases: [test, qa]
+    url: https://test.example.com
+    ssh: ssh example-test
+    notes: Shared test environment.
+  staging:
+    aliases: [staging, pre-production]
+    url: https://staging.example.com
+    ssh: ssh example-staging
+    notes: Release candidate validation environment.
+  production:
+    aliases: [prod, production]
+    url: https://example.com
+    ssh: ssh example-prod
+    notes: Production access requires explicit user confirmation for write operations.

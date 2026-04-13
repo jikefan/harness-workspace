@@ -1,0 +1,52 @@
+# Example task registry. Keep real registries lightweight and current.
+# Status values: active, blocked, review, merged, archived, abandoned.
+
+tasks:
+  - id: feat-sample-onboarding
+    project: example-product
+    status: active
+    type: feature
+    base_branch: develop
+    created_at: "2026-04-13"
+    updated_at: "2026-04-13"
+    owner: example-owner
+    summary: Add a sample onboarding flow across API and web frontend.
+    workspace: projects/example-product/active/feat-sample-onboarding
+    repos:
+      api:
+        path: projects/example-product/active/feat-sample-onboarding/example-api
+        branch: feat/sample-onboarding-api
+        pr: null
+      web:
+        path: projects/example-product/active/feat-sample-onboarding/example-web
+        branch: feat/sample-onboarding-web
+        pr: null
+    checks:
+      required:
+        - repo-local scripts/agent/check.sh
+        - pull request CI
+    notes:
+      - This is anonymized sample data. Replace with real task details in real profiles.
+
+  - id: fix-sample-payment-copy
+    project: example-product
+    status: review
+    type: fix
+    base_branch: develop
+    created_at: "2026-04-10"
+    updated_at: "2026-04-12"
+    owner: example-owner
+    summary: Fix wording in a sample payment confirmation screen.
+    workspace: projects/example-product/active/fix-sample-payment-copy
+    repos:
+      web:
+        path: projects/example-product/active/fix-sample-payment-copy/example-web
+        branch: fix/sample-payment-copy
+        pr: 123
+    checks:
+      required:
+        - yarn lint
+        - yarn test:run
+        - yarn build
+    notes:
+      - Example PR number is fake.

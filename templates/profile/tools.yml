@@ -1,0 +1,11 @@
+# Template: project tool index
+
+tools:
+  branch_status:
+    description: Compare important branches for project repositories.
+    command: tools/profiles/<project-id>/branch-status.sh
+    safety: read-only
+  release_check:
+    description: Run pre-release checks and write report to artifacts/reports/.
+    command: tools/profiles/<project-id>/release-check.sh
+    safety: read-only

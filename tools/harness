@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CMD="${1:-help}"
+PROJECT="${2:-}"
+shift || true
+if [ "$#" -gt 0 ]; then shift || true; fi
+
+case "$CMD" in
+  help|-h|--help)
+    cat <<HELP
+Harness workspace tool
+
+Usage:
+  tools/harness audit
+  tools/harness task-status <project>
+  tools/harness repo-status <project>
+  tools/harness branch-status <project> [args...]
+
+Examples:
+  tools/harness audit
+  tools/harness task-status example-product
+  tools/harness branch-status example-product
+HELP
+    ;;
+  audit)
+    exec "$ROOT/tools/core/audit.sh" "$@"
+    ;;
+  task-status)
+    exec "$ROOT/tools/core/task-status.sh" "$PROJECT" "$@"
+    ;;
+  repo-status)
+    exec "$ROOT/tools/core/repo-status.sh" "$PROJECT" "$@"
+    ;;
+  branch-status)
+    if [ -z "$PROJECT" ]; then
+      echo "Usage: tools/harness branch-status <project> [args...]" >&2
+      exit 2
+    fi
+    TOOL="$ROOT/tools/profiles/$PROJECT/branch-status.sh"
+    if [ ! -x "$TOOL" ]; then
+      echo "No branch-status tool found for project: $PROJECT" >&2
+      echo "Expected executable: $TOOL" >&2
+      exit 1
+    fi
+    exec "$TOOL" "$@"
+    ;;
+  *)
+    echo "Unknown command: $CMD" >&2
+    echo "Run: tools/harness help" >&2
+    exit 2
+    ;;
+esac

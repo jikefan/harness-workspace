@@ -1,0 +1,24 @@
+# Template: project task registry
+# Copy to projects/<project-id>/tasks.yml.
+
+tasks:
+  - id: <task-id>
+    project: <project-id>
+    status: active
+    type: feature
+    base_branch: <base-branch>
+    created_at: "YYYY-MM-DD"
+    updated_at: "YYYY-MM-DD"
+    owner: <owner>
+    summary: <short summary>
+    workspace: projects/<project-id>/active/<task-id>
+    repos:
+      api:
+        path: projects/<project-id>/active/<task-id>/<repo-name>
+        branch: feat/<branch-name>
+        pr: null
+    checks:
+      required:
+        - repo-local scripts/agent/check.sh
+        - pull request CI
+    notes: []

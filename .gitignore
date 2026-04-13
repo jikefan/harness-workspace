@@ -1,0 +1,138 @@
+# Harness Workspace open-source ignore policy
+# Goal: keep the public repository generic. Commit templates, docs, examples, and tools;
+# keep real customer/project profiles, working copies, secrets, and generated artifacts local.
+
+# -----------------------------------------------------------------------------
+# Secrets and local credentials
+# -----------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.p8
+*.p12
+*.crt
+*.csr
+*.mobileprovision
+*secret*
+*Secret*
+*credential*
+*Credential*
+*token*
+*Token*
+*password*
+*Password*
+*private*
+*Private*
+
+# Allow safe documented examples
+!.env.example
+!**/.env.example
+
+# -----------------------------------------------------------------------------
+# Local/private project profiles
+# -----------------------------------------------------------------------------
+# Real project profiles can contain private repo URLs, local paths, SSH aliases,
+# internal docs pointers, or customer-specific rules. Keep them local by default.
+profiles/*
+!profiles/README.md
+!profiles/example-product/
+!profiles/example-product/**
+
+# Optional local profile overlays
+profiles-local/
+profiles/**/local.yml
+profiles/**/local.yaml
+profiles/**/secrets.yml
+profiles/**/secrets.yaml
+profiles/**/.env*
+
+# -----------------------------------------------------------------------------
+# Project task workspaces and registries
+# -----------------------------------------------------------------------------
+# Real task registries can reveal roadmap, PRs, branch names, people, and customer context.
+# Keep only the anonymized example project in the public repo.
+projects/*
+!projects/README.md
+!projects/example-product/
+!projects/example-product/**
+
+# Never version cloned working copies or scratch project work.
+projects/*/active/**
+projects/*/archived/**
+projects/*/scratch/**
+!projects/*/active/.gitkeep
+!projects/*/archived/.gitkeep
+!projects/*/scratch/.gitkeep
+
+
+# -----------------------------------------------------------------------------
+# Local/private project-specific tools
+# -----------------------------------------------------------------------------
+# Real project tools may include local absolute paths or internal service names.
+# Keep only anonymized example tools in the public repo.
+tools/profiles/*
+!tools/profiles/example-product/
+!tools/profiles/example-product/**
+
+# Local private config directories
+config/local/
+config/private/
+secrets/
+credentials/
+private/
+
+# -----------------------------------------------------------------------------
+# Generated artifacts and scratch data
+# -----------------------------------------------------------------------------
+artifacts/**
+!artifacts/README.md
+tmp/**
+!tmp/README.md
+*.log
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.jsonl
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.backup
+
+# Local state / caches
+.state/
+.cache/
+.omx/
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# Tooling caches and build outputs
+# -----------------------------------------------------------------------------
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+.next/
+.nuxt/
+
+# IDE/editor local files
+.idea/
+.vscode/
+*.swp
+*.swo

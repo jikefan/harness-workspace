@@ -1,0 +1,23 @@
+# Template: environments
+# Do not store secrets, private keys, passwords, or tokens here.
+
+environments:
+  local:
+    aliases: [local]
+    url: http://localhost:<port>
+    notes: Local development.
+  test:
+    aliases: [test, qa]
+    url: https://test.example.com
+    ssh: ssh <test-alias>
+    notes: Shared test environment.
+  staging:
+    aliases: [staging, pre-production]
+    url: https://staging.example.com
+    ssh: ssh <staging-alias>
+    notes: Release validation environment.
+  production:
+    aliases: [prod, production]
+    url: https://example.com
+    ssh: ssh <production-alias>
+    notes: Production writes require explicit user confirmation.

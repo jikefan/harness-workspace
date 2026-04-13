@@ -1,0 +1,15 @@
+# Example project-specific tool index.
+
+tools:
+  branch_status:
+    description: Compare release branches for all project repositories.
+    command: tools/profiles/example-product/branch-status.sh
+    safety: read-only
+  release_check:
+    description: Run pre-release checks and produce a report under artifacts/reports/.
+    command: tools/profiles/example-product/release-check.sh
+    safety: read-only
+  export_operational_report:
+    description: Export an anonymized operational report.
+    command: tools/profiles/example-product/export-operational-report.sh
+    safety: read-only

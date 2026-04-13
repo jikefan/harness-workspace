@@ -1,0 +1,27 @@
+# Template: project profile
+# Copy to profiles/<project-id>/profile.yml and replace placeholders.
+
+id: <project-id>
+name: <Project Name>
+description: <One sentence describing this project profile.>
+
+default_base_branch: <develop-or-staging-or-main>
+
+runtime:
+  frontend:
+    node: "22"
+    package_manager: yarn
+  backend:
+    python: "3.12"
+    virtual_env: .venv
+
+paths:
+  legacy_workspace: /path/to/legacy/workspace
+  env_file: /path/to/local/.env
+  ops_docs: /path/to/ops/docs
+  external_tools: /path/to/external/tools
+
+conventions:
+  task_workspace_root: projects/<project-id>/active
+  artifact_root: artifacts
+  tmp_root: tmp

@@ -1,0 +1,28 @@
+# Example project profile. This file is safe to copy and adapt.
+# Keep it free of secrets and customer-identifying data.
+
+id: example-product
+name: Example Product
+description: An anonymized multi-repo product used as a harness profile example.
+
+default_base_branch: develop
+
+runtime:
+  frontend:
+    node: "22"
+    package_manager: yarn
+  backend:
+    python: "3.12"
+    virtual_env: .venv
+
+paths:
+  # Use placeholders or documented local paths only. Do not store secrets here.
+  legacy_workspace: /path/to/legacy/workspace
+  env_file: /path/to/local/.env
+  ops_docs: /path/to/ops/docs
+  external_tools: /path/to/external/tools
+
+conventions:
+  task_workspace_root: projects/example-product/active
+  artifact_root: artifacts
+  tmp_root: tmp
