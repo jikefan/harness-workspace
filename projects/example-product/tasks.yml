@@ -1,7 +1,40 @@
 # Example task registry. Keep real registries lightweight and current.
 # Status values: active, blocked, review, merged, archived, abandoned.
 
+project: example-product
+summary: Public, anonymized task registry demonstrating harness conventions.
+
 tasks:
+  - id: terminal-life-game
+    project: example-product
+    status: archived
+    type: feature
+    base_branch: main
+    created_at: "2026-04-13"
+    updated_at: "2026-04-13"
+    owner: example-owner
+    summary: Build a dependency-free Python terminal implementation of Conway's Game of Life.
+    workspace: projects/example-product/case-studies/terminal-life
+    repos:
+      terminal_life:
+        path: projects/example-product/case-studies/terminal-life/repo
+        branch: feat/terminal-life-game
+        pr: null
+    checks:
+      required:
+        - projects/example-product/case-studies/terminal-life/repo/scripts/check.sh
+      last_run:
+        command: ./scripts/check.sh
+        status: passed
+        evidence: Python compile, unittest discovery, and non-interactive smoke run passed.
+    artifacts:
+      task_doc: projects/example-product/case-studies/terminal-life/task.md
+      progress_log: projects/example-product/case-studies/terminal-life/progress.md
+      findings: projects/example-product/case-studies/terminal-life/findings.md
+    notes:
+      - This is a public case study, not a private customer project.
+      - The repo is intentionally small, dependency-free, and safe to publish.
+
   - id: feat-sample-onboarding
     project: example-product
     status: active
