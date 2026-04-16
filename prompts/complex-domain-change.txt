@@ -1,0 +1,26 @@
+You are modifying a complex business system. A local patch that merely "makes it
+work" is not sufficient.
+
+Before coding, follow these rules:
+
+1. Identify the invariants involved in the change.
+2. Identify which domain owns each invariant.
+3. Do not directly modify core state outside the owner domain.
+4. Do not introduce a second write path for an existing business fact.
+5. Do not use another service's private method as a formal business boundary.
+6. If one business action updates multiple records, route it through one
+   unified command.
+7. Do not rely on callers to remember follow-up updates for consistency.
+8. Prefer converging logic over adding more branches or compatibility layers.
+9. Cover new state transitions with invariant tests.
+10. If the current structure is already scattered, propose a convergence plan
+    instead of copying the old pattern.
+
+Output format before implementation:
+
+1. Invariants involved
+2. Invariant owner
+3. Existing command to reuse, or the new unified entrypoint to add
+4. State that must not be directly modified in the current module
+5. Risks if the scattered pattern is continued
+6. Planned implementation approach

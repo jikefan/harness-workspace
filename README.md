@@ -40,7 +40,9 @@ This repository provides a reusable answer: a neutral harness foundation where r
 ## What This Workspace Provides
 
 - **Agent instruction hub** — `AGENTS.md` defines the top-level operating contract for coding agents.
+- **Generic engineering rules** — `docs/rules/` captures cross-project guidance for complex stateful changes and review.
 - **Project profiles** — `profiles/<project>/` describes project-specific rules, repositories, environments, and tools.
+- **Reusable prompt templates** — `prompts/` holds copyable prompts for recurring high-risk coding tasks.
 - **Task lifecycle structure** — `projects/<project>/active|archived|scratch/` organizes task work from kickoff to handoff.
 - **Unified tool entrypoint** — `tools/harness` exposes audit, task-status, repo-status, and project-specific tool routing.
 - **Open-source safety defaults** — real project profiles, task workspaces, generated artifacts, caches, and common secret patterns are ignored by default.
@@ -51,7 +53,8 @@ This repository provides a reusable answer: a neutral harness foundation where r
 
 ```text
 AGENTS.md                 # Root rules for agents: boundaries, protocols, safety constraints
-docs/                     # Harness concepts and operational guides
+docs/                     # Harness concepts, operational guides, and generic engineering rules
+prompts/                  # Reusable prompt templates for high-risk or repeatable workflows
 profiles/                 # Project profiles; public repo keeps anonymized examples only
 projects/                 # Task registries and workspaces; real project work is local by default
 templates/                # Reusable profile, task, and repo harness templates
@@ -82,16 +85,23 @@ cp -R templates/profile profiles/<project-id>
 Then fill in:
 
 - `profiles/<project-id>/AGENTS.md` — project-specific agent rules
+- `profiles/<project-id>/README.md` — human-facing profile overview and read order
 - `profiles/<project-id>/profile.yml` — project metadata and runtime conventions
 - `profiles/<project-id>/repos.yml` — repository inventory
 - `profiles/<project-id>/environments.yml` — environment entrypoints and safety notes, never secrets
 - `profiles/<project-id>/tools.yml` — project-specific tool index
+- `profiles/<project-id>/docs/rules/` — project-specific engineering rules when generic rules are not enough
+- `profiles/<project-id>/prompts/` — project-specific prompt templates for repeated agent work
 
 ## Workflow Model
 
 ### 1. Rules before execution
 
 Before touching a real project, agents should read the root `AGENTS.md` and the relevant project profile. Rules are not decoration; they are the first safety layer for preventing accidental edits, destructive operations, and unreviewable work.
+
+For complex stateful business changes, use the generic rules in `docs/rules/`
+first, then refine them in the project profile if the project has narrower
+domain constraints.
 
 ### 2. Task workspaces before business-code edits
 

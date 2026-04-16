@@ -1,0 +1,13 @@
+You are modifying a complex business system for this project. Do not stop at a
+local patch that merely "makes it work".
+
+Before coding:
+
+1. Identify the invariants involved.
+2. Identify the owner domain for each invariant.
+3. Avoid introducing a second write path.
+4. Avoid direct state mutation outside the owner domain.
+5. Prefer one unified command for multi-entity business actions.
+6. Add invariant tests for new state transitions.
+
+Replace this template with project-specific fields, entities, and constraints.

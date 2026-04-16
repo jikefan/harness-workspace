@@ -13,11 +13,23 @@ This workspace manages agentic coding workflows across multiple projects. It is 
 - Production write/destructive operations require explicit user confirmation.
 - Prefer executable checks over prose-only rules. If a repo has `scripts/agent/check.sh`, run it before PR/hand-off.
 
+## Complex Domain Work
+
+For stateful, cross-entity business changes:
+
+- Identify the invariant and its owner before coding.
+- Avoid adding a second write path for an existing business fact.
+- Prefer one command entrypoint for one business action.
+- Keep transaction boundaries aligned with business boundaries.
+- Add invariant tests, not only branch or endpoint tests.
+
 ## Where to Look First
 
 - Harness overview: `README.md`
 - Workspace layout: `docs/harness/workspace-layout.md`
 - Security policy: `docs/harness/security-policy.md`
+- Generic engineering rules: `docs/rules/README.md`
+- Reusable prompt templates: `prompts/README.md`
 - Project profile design: `docs/harness/project-profile-design.md`
 - Task workflow: `docs/guides/create-task-workspace.md`
 - Project-specific rules: `profiles/<project>/AGENTS.md`

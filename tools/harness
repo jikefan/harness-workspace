@@ -16,11 +16,13 @@ Usage:
   tools/harness audit
   tools/harness task-status <project>
   tools/harness repo-status <project>
+  tools/harness archive-task <project> <task-id>
   tools/harness branch-status <project> [args...]
 
 Examples:
   tools/harness audit
   tools/harness task-status example-product
+  tools/harness archive-task example-product terminal-life-game
   tools/harness branch-status example-product
 HELP
     ;;
@@ -32,6 +34,13 @@ HELP
     ;;
   repo-status)
     exec "$ROOT/tools/core/repo-status.sh" "$PROJECT" "$@"
+    ;;
+  archive-task)
+    if [ -z "$PROJECT" ] || [ "$#" -lt 1 ]; then
+      echo "Usage: tools/harness archive-task <project> <task-id>" >&2
+      exit 2
+    fi
+    exec bash "$ROOT/tools/core/archive-task.sh" "$PROJECT" "$@"
     ;;
   branch-status)
     if [ -z "$PROJECT" ]; then

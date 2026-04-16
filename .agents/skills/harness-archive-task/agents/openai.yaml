@@ -1,0 +1,7 @@
+interface:
+  display_name: "Archive Harness Task"
+  short_description: "Archive completed harness tasks and sync registry paths."
+  default_prompt: "Use $harness-archive-task to mark a completed harness task archived and move it into archived/YYYY-MM."
+
+policy:
+  allow_implicit_invocation: true

@@ -5,7 +5,8 @@ The harness workspace separates durable harness assets from volatile project wor
 ## Stable, versionable areas
 
 - `AGENTS.md`: root agent rules and pointers.
-- `docs/`: durable design and operational documentation.
+- `docs/`: durable design, operational documentation, and generic engineering rules.
+- `prompts/`: reusable prompt templates for repeatable high-risk tasks.
 - `profiles/`: project-specific profiles.
 - `tools/`: reusable harness commands and wrappers.
 - `templates/`: reusable scaffolds for tasks and repos.
