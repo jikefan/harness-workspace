@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 780" role="img" aria-labelledby="title description">
+  <title id="title">Harness Workspace Architecture</title>
+  <desc id="description">Read-only repository and shared branch baselines flow into an isolated implementation worktree, then to a pull request. Documentation and scratch space support the workflow.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#07111f"/>
+      <stop offset="1" stop-color="#112136"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#34d399"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#01050b" flood-opacity=".5"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-80%" width="200%" height="260%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-muted" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#71849b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-accent" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#62e7ca" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="780" fill="url(#background)"/>
+  <g stroke="#26364a" stroke-width="1" opacity=".48">
+    <path d="M0 132H1440M0 258H1440M0 384H1440M0 510H1440M0 636H1440"/>
+    <path d="M160 0V780M320 0V780M480 0V780M640 0V780M800 0V780M960 0V780M1120 0V780M1280 0V780" opacity=".65"/>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
+    <g transform="translate(86 70)">
+      <rect width="50" height="50" rx="14" fill="#0f3539" stroke="#258f83"/>
+      <path d="M15 18H35L31 25L35 32H15L19 25Z" fill="none" stroke="#76f0d6" stroke-width="2.4" stroke-linejoin="round"/>
+      <text x="68" y="22" fill="#f8fbff" font-size="24" font-weight="700">Harness Workspace</text>
+      <text x="68" y="45" fill="#95abc0" font-size="14">A calm operating system for multi-repo AI engineering</text>
+    </g>
+
+    <g transform="translate(1085 80)">
+      <rect width="105" height="31" rx="15.5" fill="#15372c" stroke="#28795a"/>
+      <circle cx="19" cy="15.5" r="4.2" fill="#5ce8a8"/>
+      <text x="31" y="20" fill="#aaf5ce" font-size="11" font-weight="700" letter-spacing="1">WRITE PATH</text>
+      <rect x="122" width="143" height="31" rx="15.5" fill="#1a2a3e" stroke="#405a74"/>
+      <circle cx="141" cy="15.5" r="4.2" fill="#a2b5cb"/>
+      <text x="153" y="20" fill="#c2d0df" font-size="11" font-weight="700" letter-spacing="1">READ-ONLY</text>
+    </g>
+
+    <g fill="#8097b0" font-size="11" font-weight="700" letter-spacing="2.2">
+      <text x="86" y="180">1. PROJECT INPUTS</text>
+      <text x="558" y="180">2. SAFE IMPLEMENTATION</text>
+      <text x="1050" y="180">3. DELIVERY</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="86" y="210" width="366" height="142" rx="17" fill="#112133" stroke="#3a5069"/>
+      <rect x="86" y="210" width="5" height="142" rx="2.5" fill="#91a4b8"/>
+      <circle cx="126" cy="251" r="18" fill="#263b50"/>
+      <path d="M118 251H134M126 243V259" stroke="#c3d4e5" stroke-width="2" stroke-linecap="round"/>
+      <text x="158" y="247" fill="#f4f8fc" font-size="19" font-weight="700">Baseline repositories</text>
+      <text x="158" y="271" fill="#a9bdd0" font-size="13">projects/&lt;workspace&gt;/repos/</text>
+      <path d="M116 303H422" stroke="#2c4156"/>
+      <text x="116" y="329" fill="#9fb2c4" font-size="12.5">Canonical main branch checkout</text>
+      <text x="422" y="329" fill="#c8d5e1" font-size="11" font-weight="700" text-anchor="end">PULL ONLY</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="86" y="430" width="366" height="142" rx="17" fill="#112133" stroke="#3a5069"/>
+      <rect x="86" y="430" width="5" height="142" rx="2.5" fill="#91a4b8"/>
+      <circle cx="126" cy="471" r="18" fill="#263b50"/>
+      <path d="M117 465H135V479H117ZM121 460H131" fill="none" stroke="#c3d4e5" stroke-width="1.8" stroke-linejoin="round"/>
+      <text x="158" y="467" fill="#f4f8fc" font-size="19" font-weight="700">Shared branch worktrees</text>
+      <text x="158" y="491" fill="#a9bdd0" font-size="13">projects/&lt;workspace&gt;/staging/</text>
+      <path d="M116 523H422" stroke="#2c4156"/>
+      <text x="116" y="549" fill="#9fb2c4" font-size="12.5">Optional staging or develop baseline</text>
+      <text x="422" y="549" fill="#c8d5e1" font-size="11" font-weight="700" text-anchor="end">PULL ONLY</text>
+    </g>
+
+    <g fill="none" stroke="#71849b" stroke-width="2.2">
+      <path d="M452 281H512Q528 281 528 297V338Q528 354 544 354H572" marker-end="url(#arrow-muted)"/>
+      <path d="M452 501H500Q516 501 516 485V388Q516 372 532 372H572" marker-end="url(#arrow-muted)"/>
+    </g>
+    <g fill="#8fa4bb" font-size="11">
+      <text x="472" y="266">branch from main</text>
+      <text x="472" y="523">branch from staging</text>
+    </g>
+
+    <g filter="url(#shadow)">
+      <rect x="572" y="250" width="410" height="250" rx="19" fill="#0d2c2d" stroke="#36a99b" stroke-width="1.5"/>
+      <rect x="572" y="250" width="410" height="7" rx="3.5" fill="url(#accent)" filter="url(#glow)"/>
+      <circle cx="616" cy="307" r="21" fill="#185049"/>
+      <path d="M607 307H625M616 298V316" stroke="#84f5d9" stroke-width="2.1" stroke-linecap="round"/>
+      <text x="652" y="303" fill="#effffb" font-size="22" font-weight="700">Isolated worktree</text>
+      <text x="652" y="328" fill="#a8e9db" font-size="13.5">projects/&lt;workspace&gt;/worktrees/</text>
+      <path d="M602 357H952" stroke="#287168"/>
+      <g transform="translate(602 382)">
+        <rect width="157" height="58" rx="11" fill="#16443f" stroke="#34796f"/>
+        <text x="16" y="23" fill="#91ead8" font-size="10" font-weight="700" letter-spacing="1">FEATURE BRANCH</text>
+        <text x="16" y="44" fill="#effffb" font-size="13.5" font-weight="700">feat-login-polish</text>
+        <rect x="177" width="173" height="58" rx="11" fill="#16443f" stroke="#34796f"/>
+        <text x="193" y="23" fill="#91ead8" font-size="10" font-weight="700" letter-spacing="1">ONLY WRITE ZONE</text>
+        <text x="193" y="44" fill="#effffb" font-size="13.5" font-weight="700">code + tests + PR</text>
+      </g>
+      <text x="602" y="475" fill="#b3ded6" font-size="12.5">One task, one branch, one clean review surface.</text>
+    </g>
+
+    <path d="M982 375H1048" fill="none" stroke="#61e4c7" stroke-width="2.7" marker-end="url(#arrow-accent)" filter="url(#glow)"/>
+    <text x="991" y="357" fill="#70ebd1" font-size="11" font-weight="700" letter-spacing="1">COMMIT + PUSH</text>
+
+    <g filter="url(#shadow)">
+      <rect x="1050" y="294" width="304" height="166" rx="17" fill="#122737" stroke="#416276"/>
+      <circle cx="1093" cy="338" r="20" fill="#24465a"/>
+      <path d="M1083 336L1093 329L1103 336L1093 343ZM1087 343V351H1099V343" fill="none" stroke="#c5eeff" stroke-width="1.9" stroke-linejoin="round"/>
+      <text x="1128" y="334" fill="#f3faff" font-size="19" font-weight="700">Pull request</text>
+      <text x="1128" y="359" fill="#b5ccdc" font-size="13">Review, CI, merge</text>
+      <path d="M1078 389H1326" stroke="#315269"/>
+      <text x="1078" y="420" fill="#a5bdcd" font-size="12.5">The baseline stays clean.</text>
+    </g>
+
+    <g transform="translate(86 646)" filter="url(#shadow)">
+      <rect width="650" height="78" rx="15" fill="#122032" stroke="#30465c"/>
+      <circle cx="38" cy="39" r="18" fill="#31284f"/>
+      <path d="M30 32H46V48H30ZM34 28H42" fill="none" stroke="#d2c5ff" stroke-width="1.8" stroke-linejoin="round"/>
+      <text x="71" y="34" fill="#eeeaff" font-size="16" font-weight="700">docs/</text>
+      <text x="71" y="57" fill="#afa7cc" font-size="12.5">Durable decisions, guides, and project knowledge</text>
+      <path d="M366 17V61" stroke="#31465b"/>
+      <circle cx="407" cy="39" r="18" fill="#543b25"/>
+      <path d="M399 39H415M407 31V47" stroke="#ffdbad" stroke-width="1.8" stroke-linecap="round"/>
+      <text x="440" y="34" fill="#fff1df" font-size="16" font-weight="700">scratch/</text>
+      <text x="440" y="57" fill="#cfb08f" font-size="12.5">Disposable notes, scripts, and investigations</text>
+    </g>
+
+    <text x="1354" y="716" fill="#6c849d" font-size="11" font-weight="700" letter-spacing="1.6" text-anchor="end">OPEN SOURCE TEMPLATE</text>
+  </g>
+</svg>

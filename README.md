@@ -4,6 +4,10 @@ A lightweight workspace template for working with AI coding agents across multip
 
 The goal is simple: keep baseline checkouts clean, do all implementation work in isolated `git worktree` directories, and give agents a predictable place for temporary notes, scripts, and long-lived documentation.
 
+<p align="center">
+  <img src="./assets/harness-workspace-architecture.svg" alt="Harness Workspace architecture: read-only baselines flow into isolated worktrees and then pull requests, supported by docs and scratch space." />
+</p>
+
 ## Directory Layout
 
 ```text
