@@ -1,0 +1,48 @@
+# Workspace-managed repositories
+projects/*/repos/
+projects/*/staging/
+projects/*/worktrees/
+
+# Scratch is disposable
+scratch/*
+!scratch/.gitkeep
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+!.env.template
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.template
+*.pem
+*.key
+*.p12
+*_id_rsa
+*_id_ed25519
+
+# Logs and local output
+*.log
+tmp/
+temp/
+
+# Editors and OS files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Language caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+node_modules/
+.npm/
+.yarn/
+dist/
+build/
+coverage/
